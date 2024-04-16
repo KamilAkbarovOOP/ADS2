@@ -1,28 +1,51 @@
-public class MyArrayList <T>{
+import java.util.Iterator;
+
+public class MyArrayList <T> implements Mylist{
     private Object[] array;
     private int MAX_SIZE = 10;
     private int length = 0;
+
+
+
 
     //Declaration of an arraylist
     public MyArrayList (){
         array = new Object [MAX_SIZE];
     }
 
+
+
+
     //Adding a new item in an arraylist
-    public void add (T item){
+    @Override
+    public void add (Object item){
         if (length == MAX_SIZE){
             IncreaseLength();
         }
         array[length++] = item;
     }
 
-    //Adding a new item in an arraylist by its index
-    public void add (int index, T item){
+
+    //Putting item on place of another item by its index
+    @Override
+    public void set(int index, Object item) {
         if(index >= 0 && index <length) {
             array[index] = item;
         }
         else{throw new IndexOutOfBoundsException();}
     }
+
+
+    //Adding a new item in an arraylist by its index
+    public void add (int index, Object item){
+        if(index >= 0 && index <length) {
+            array[index] = item;
+        }
+        else{throw new IndexOutOfBoundsException();}
+    }
+
+
+
 
     //Adding more space for an arraylist
     public void IncreaseLength(){
@@ -34,6 +57,9 @@ public class MyArrayList <T>{
         array = array2;
     }
 
+
+
+
     //Getting item by index
     public Object get(int index){
         if(index < length && index >= 0){
@@ -42,31 +68,44 @@ public class MyArrayList <T>{
         throw new IndexOutOfBoundsException();
     }
 
+
+
+
     //Getting length of an arraylist
     public int size(){
         return length;
     }
+
+
 
     //Getting the first item of an arraylist
     public Object getFirst(){
         return array[0];
     }
 
+
+
+
     //Getting the last item of an arraylist
     public Object getLast(){
         return array[length - 1];
     }
 
+
+
+
     //Adding the last item to an arraylist
-    public void addLast(T item){
+    public void addLast(Object item){
         if (length == MAX_SIZE){
             IncreaseLength();
         }
         array[length++] = item;
     }
 
+
+
     //Adding the first item to an arraylist
-    public void addFirst(T item){
+    public void addFirst(Object item){
         if (length == MAX_SIZE){
             IncreaseLength();
         }
@@ -77,11 +116,15 @@ public class MyArrayList <T>{
         length++;
     }
 
+
+
     //Clearing whole arraylist
     public void clear(){
         array = new Object[MAX_SIZE];
         length = 0;
     }
+
+
 
     //Sorting of an arraylist
     public void sort(){
@@ -96,6 +139,8 @@ public class MyArrayList <T>{
         }
     }
 
+
+
     //Finding index an item in arraylist
     public int indexOf(Object object){
         for(int i = 0; i < length; i++){
@@ -105,6 +150,8 @@ public class MyArrayList <T>{
         }
         return -1;
     }
+
+
 
     //Finding the last index of an item in arraylist
     public int lastIndexOf(Object object){
@@ -116,6 +163,8 @@ public class MyArrayList <T>{
         return -1;
     }
 
+
+
     //Finding out if an item exists in arraylist
     public boolean exists(Object object){
         for(int i = 0; i < length; i++){
@@ -125,6 +174,19 @@ public class MyArrayList <T>{
         }
         return false;
     }
+
+
+
+    //Make array from an arraylist
+    @Override
+    public Object[] toArray() {
+        Object[] narray = new Object[length];
+        for(int i = 0; i < length; i++){
+            narray[i] = array[i];
+        }
+        return narray;
+    }
+
 
     //Removing an item from arraylist by its index
     public void remove(int index){
@@ -138,6 +200,9 @@ public class MyArrayList <T>{
         else{throw new IndexOutOfBoundsException();}
     }
 
+
+
+
     //Removing the first item from arraylist
     public void removeFirst(){
         for(int i = 0; i < length; i++){
@@ -147,11 +212,17 @@ public class MyArrayList <T>{
         length--;
     }
 
+
+
+
     //Removing the last item from arraylist
     public void removeLast(){
         array[length - 1] = null;
         length--;
     }
 
-
+    @Override
+    public Iterator iterator() {
+        return null;
+    }
 }
