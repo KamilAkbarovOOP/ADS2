@@ -1,30 +1,21 @@
+import java.sql.Array;
+
 public class Main {
     public static void main(String[] args) {
-        MyArrayList <Integer> arrayList = new MyArrayList();
-
-        arrayList.add(12);
-        arrayList.addFirst(19);
-        arrayList.addLast(13);
-        arrayList.addLast(12);
+        MyLinkedList<Integer> list = new MyLinkedList<>();
+        Object[] arr;
 
 
-        for(int i = 0; i < arrayList.size(); i++){
-            System.out.print(arrayList.get(i)); System.out.print(" ");
+        list.add(10);
+        list.add(1);
+        list.add(5);
+        list.add(3);
+        list.add(1, 2);
+        list.sort();
+        arr = list.toArray();
+        for(int i = 0; i < arr.length; i++){
+            System.out.println(arr[i]);
         }
-        System.out.println();
-
-        System.out.println(arrayList.size());
-        System.out.println();System.out.println();
-
-        arrayList.removeLast();
-
-        for(int i = 0; i < arrayList.size(); i++){
-            System.out.print(arrayList.get(i)); System.out.print(" ");
-        }
-        System.out.println();
-
-        System.out.println(arrayList.size());
-
     }
 }
 

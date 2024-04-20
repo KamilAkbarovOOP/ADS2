@@ -6,14 +6,10 @@ public class MyArrayList <T> implements Mylist{
     private int length = 0;
 
 
-
-
     //Declaration of an arraylist
     public MyArrayList (){
         array = new Object [MAX_SIZE];
     }
-
-
 
 
     //Adding a new item in an arraylist
@@ -45,8 +41,6 @@ public class MyArrayList <T> implements Mylist{
     }
 
 
-
-
     //Adding more space for an arraylist
     public void IncreaseLength(){
         MAX_SIZE = MAX_SIZE * 2;
@@ -58,8 +52,6 @@ public class MyArrayList <T> implements Mylist{
     }
 
 
-
-
     //Getting item by index
     public Object get(int index){
         if(index < length && index >= 0){
@@ -69,21 +61,15 @@ public class MyArrayList <T> implements Mylist{
     }
 
 
-
-
     //Getting length of an arraylist
     public int size(){
         return length;
     }
 
-
-
     //Getting the first item of an arraylist
     public Object getFirst(){
         return array[0];
     }
-
-
 
 
     //Getting the last item of an arraylist
@@ -92,16 +78,13 @@ public class MyArrayList <T> implements Mylist{
     }
 
 
-
-
     //Adding the last item to an arraylist
-    public void addLast(Object item){
-        if (length == MAX_SIZE){
+    public void addLast(Object item) {
+        if (length == MAX_SIZE) {
             IncreaseLength();
         }
         array[length++] = item;
     }
-
 
 
     //Adding the first item to an arraylist
@@ -116,14 +99,11 @@ public class MyArrayList <T> implements Mylist{
         length++;
     }
 
-
-
     //Clearing whole arraylist
-    public void clear(){
+    public void clear() {
         array = new Object[MAX_SIZE];
         length = 0;
     }
-
 
 
     //Sorting of an arraylist
@@ -140,7 +120,6 @@ public class MyArrayList <T> implements Mylist{
     }
 
 
-
     //Finding index an item in arraylist
     public int indexOf(Object object){
         for(int i = 0; i < length; i++){
@@ -150,7 +129,6 @@ public class MyArrayList <T> implements Mylist{
         }
         return -1;
     }
-
 
 
     //Finding the last index of an item in arraylist
@@ -164,7 +142,6 @@ public class MyArrayList <T> implements Mylist{
     }
 
 
-
     //Finding out if an item exists in arraylist
     public boolean exists(Object object){
         for(int i = 0; i < length; i++){
@@ -174,7 +151,6 @@ public class MyArrayList <T> implements Mylist{
         }
         return false;
     }
-
 
 
     //Make array from an arraylist
@@ -194,13 +170,10 @@ public class MyArrayList <T> implements Mylist{
             for(int i = index; i < length; i++){
                 array[i] = array[i + 1];
             }
-            array[length - 1] = null;
             length--;
         }
         else{throw new IndexOutOfBoundsException();}
     }
-
-
 
 
     //Removing the first item from arraylist
@@ -208,16 +181,12 @@ public class MyArrayList <T> implements Mylist{
         for(int i = 0; i < length; i++){
             array[i] = array[i + 1];
         }
-        array[length - 1] = null;
         length--;
     }
 
 
-
-
     //Removing the last item from arraylist
     public void removeLast(){
-        array[length - 1] = null;
         length--;
     }
 
