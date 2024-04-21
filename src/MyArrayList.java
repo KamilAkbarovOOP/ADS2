@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class MyArrayList <T> implements Mylist{
     private Object[] array;
@@ -166,7 +167,7 @@ public class MyArrayList <T> implements Mylist{
 
     //Removing an item from arraylist by its index
     public void remove(int index){
-        if(index >= 0 && index <length) {
+        if(index >= 0 && index < length) {
             for(int i = index; i < length; i++){
                 array[i] = array[i + 1];
             }
@@ -190,8 +191,9 @@ public class MyArrayList <T> implements Mylist{
         length--;
     }
 
+
     @Override
-    public Iterator iterator() {
-        return null;
+    public Iterator<T> iterator() {
+       return null;
     }
 }
